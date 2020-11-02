@@ -1,9 +1,8 @@
 # CourseProject for st19
 
-# ManBearPig. A study on how modern UNIX sytem search their manual pages.
-The goal of this project would be to create a report and possibly code improvements
-for the mandoc project (https://mandoc.bsd.lv/) and more specifically for its textual 
-search features.
+# ManBearPig. An attempt at providing Full Text Search to mandoc
+The goal of this project would be to attempt an implementation of a trigram based full text search database
+for the mandoc project (https://mandoc.bsd.lv/)
 
 # Background
 UNIX system provide their documentation to the user through a set of tools collectively referred to
@@ -15,8 +14,9 @@ The database are built with the makewhatis(1) tool.
 
 # Project proposal
 We will investigate the C source code of the mandoc project, targeted on the modules of searching
-and database building. We will understand how it works and them potentially propose improvements
-or patches based on modern techniques learned from CS410: Text Information Systems @ UIUC course.
+and database building. We will understand how it works and how to extract manual page text
+using the mdoc library functions. Then we shall create a simplified trigram database of an 
+an inverted index with the goal to connect it to the search capabilities.
 
 # members
 st19 / solo project 
