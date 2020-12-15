@@ -88,7 +88,8 @@ For this task a small utlity was written (which borrows heavily from the demando
 as it needs to make decisions about , spaces, linebrakes , capitalization etc, but it still achieves the goal for the most part. It is able to extract text without formatting
 macros. The relevant code for this lives under {\tt code/extract\_text.c}, and it works by recursively parsing the mdoc structures (they can be embedded) in order to 
 output only the words that are not language tokens. 
-\subsubsection*{Efficient free text indexing}
+
+\subsubsection*{matching using trigrams}
 Since the makewhatis database is already in a hashtable format, it would make sense to choose a representation that maps well to that backend if it is to ever be merged in the
 main codebase. We want the user to be able to enter a small set of words and to fetch the results of the manual page this text sequence exists in. Also we would like for
 the user to have the ability to find a matching line of text midsentence. Consider for example a part of a manual page stating that {\tt "A manual page consists of several sections."}.
@@ -128,6 +129,12 @@ arg: dog trigrams  [_ _ d]  [_ d o]  [d o g]  [o g _]  [g _ _]
 
 \end{lstlisting}
 
+\section*{Next steps}
+Since we now have seen that we can succesfully extract words from the mdoc format and generate trigrams for words we would need to create a hashtable using the ohash functions
+that will resemble the existing makewhatis databases. Currently the values of these hashes are just the name and the section of the manual page, but since we can give the ability
+to match anywhere in a page , it would also make sense to at least provide a file pointer to beginning of the actual text. This would be a very hard problem since we can not
+correlate where something is going to be rendered as a position , to where the text is on the mdoc document. Therefore it would make more sense to just give the name of the 
+page back and then use our system's pager (less/more etc) to navigate to that exact string. 
 
 
 \end{document}

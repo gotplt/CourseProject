@@ -18,5 +18,10 @@ and database building. We will understand how it works and how to extract manual
 using the mdoc library functions. Then we shall create a simplified trigram database of an 
 an inverted index with the goal to connect it to the search capabilities.
 
+# Final report and code
+You can read the final report in the pdf , and see the provided final-presentation.mp4 
+To compile the mandoc source code you can fetch it from https://mandoc.bsd.lv/ and compile
+it at the same directory level as this project.
+
 # members
 st19 / solo project 
